@@ -2,11 +2,9 @@
 
 - **Name**: Edward Ji
 - **Dot Number**: ji.844
-- **Due Date**: 
+- **Due Date**: 2/6 @ 12:40 PM EST
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +27,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -52,8 +48,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -66,8 +60,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -106,23 +98,15 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+I am a Data Analytics major student who is interested in using data and structured systems to understand and solve real-world problems. Outside of classes, I enjoyed travelling and watching concerts around the world. Therefore, air travel is a frequent mode of transportation for me. Since Asia is far from the United States, connecting flights are my only option. Gradually, I've discovered that connecting flights are a very complex technical project, involving connection timing, baggage handling policies, and transfer complexity. These interests naturally connect to software design. This portfolio project gives me an opportunity to combine my interests with disciplined component design by modeling travel itineraries and realistic connection constraints in a structured, testable way.
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -142,8 +126,6 @@ list-like components that have different ways of manipulating the data. Think
 about different ways you might allow a client to manipulate your component.
 
 ### Example Component
-
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -211,68 +193,143 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: Itinerary
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
-  - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
-  - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
-  - **Additional Considerations** (*note*: "I don't know" is an acceptable
-    answer for each of the following questions):
-    - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component rely on any internal classes (e.g., `Map.Pair`)?
-      Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component need any enums or constants (e.g.,
-      `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Can you implement your secondary methods using your kernel methods?
-      Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+    The purpose of this component is to model a complete flight itinerary as an ordered sequence of flight legs. The kernel focuses on minimal, position-based structural operations. The secondary interface layers travel analysis on top of the kernel, including connection validity under two common baggage scenarios: baggage is through-checked / baggage must be rechecked during the connection.
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
-  - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
-  - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
-  - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
-  - **Additional Considerations** (*note*: "I don't know" is an acceptable
-    answer for each of the following questions):
-    - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component rely on any internal classes (e.g., `Map.Pair`)?
-      Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component need any enums or constants (e.g.,
-      `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Can you implement your secondary methods using your kernel methods?
-      Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+    This component is intentionally scoped to be feasible within a single semester, as it has a small kernel and its secondary methods are layered using simple iteration and composition.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
-  - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    void addToFront(Leg x): adds leg x to the front of this itinerary
+
+    Leg removeFromFront(): removes and returns the front leg
+
+    void addToEnd(Leg x): adds leg x to the end of this itinerary
+
+    Leg removeFromEnd(): removes and returns the end leg
+
+    int length(): reports the number of legs in this itinerary
+
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    void addToEnd(Leg x): adds x to the end (implemented via add(length(), x))
+
+    String origin(): reports the origin airport (first leg’s departure)
+
+    String destination(): reports the destination airport (last leg’s arrival)
+
+    int totalFlightTime(): sum of all leg flight times
+
+    int totalLayoverTime(): sum of all layover times between adjacent legs
+
+    int minLayoverTime(): minimum layover time across all connections
+
+    boolean isConnectionValid(int minLayover): checks layovers against a single threshold
+
+    boolean isConnectionValid(BaggagePolicy p, int minThrough, int minRecheck): uses different thresholds based on baggage policy
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      Yes. The components inheriting from Standard are mutable by design, and an itinerary must support modifying the sequence of legs.
+
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      Yes. It relies on an internal Leg class to represent one flight segment with fields like origin / destination and departure / arrival times.
+
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      Yes. A BaggagePolicy enum captures the two connection scenarios and keeps the API explicit and readable.
+
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      Yes. Secondary methods can be implemented using entry, add, remove, and length. For example, addToEnd(x) is just add(length(), x).
+
+
+- Component Design #2: LayoverRules
+  - **Description**:
+    The purpose of this component is to store and apply rules about the minimum connection time. This separates rules / policies from itinerary structure. It supports different baggage policies (through-check / recheck) and can optionally store specific overrides. The kernel provides a small rule dictionary, while secondary methods provide convenient rule application helpers.
+
+    This component is intentionally scoped to be feasible within a single semester, as it has a small kernel and its secondary methods are layered using simple iteration and composition.
+
+  - **Kernel Methods**:
+    void add(String airport, BaggagePolicy p, int minutes): adds/updates the rule value for (airport, p)
+
+    int remove(String airport, BaggagePolicy p): removes and returns the rule value for (airport, p)
+
+    boolean hasKey(String airport, BaggagePolicy p): reports whether a rule exists for (airport, p)
+
+    int value(String airport, BaggagePolicy p): returns the stored minutes for (airport, p)
+
+    int size(): reports number of stored rules
+
+  - **Secondary Methods**:
+    int valueOrDefault(String airport, BaggagePolicy p, int defaultMinutes): airport-specific if present, else default
+
+    boolean isValid(String airport, BaggagePolicy p, int layoverMinutes, int defaultMinutes): checks layover against the rule
+
+    void setDefault(BaggagePolicy p, int minutes): optional convenience layer if you choose to support component level defaults
+
+  - **Additional Considerations** (*note*: "I don't know" is an acceptable
+    answer for each of the following questions):
+    - Would this component be mutable? Answer and explain:
+      Yes. Rules are meant to be updated over time via add and remove, and such standard components are mutable.
+
+    - Would this component rely on any internal classes (e.g., `Map.Pair`)?
+      Answer and explain:
+      Maybe. Internally, it could use an Map with a small internal key type.
+
+    - Would this component need any enums or constants (e.g.,
+      `Program.Instruction`)? Answer and explain:
+      Yes. It uses the BaggagePolicy enum to distinguish rule categories cleanly.
+
+    - Can you implement your secondary methods using your kernel methods?
+      Answer, explain, and give at least one example:
+      Yes. For example, valueOrDefault(...) can be implemented by calling hasKey(...).
+
+
+- Component Design #3: FlightSchedule
+  - **Description**:
+    The purpose of this component is to store a collection of flights and support access and queries useful for itinerary planning. The kernel focuses on basic dictionary style management keyed by a unique flight id, while secondary methods layer common search and connection helpers.
+
+    This component is intentionally scoped to be feasible within a single semester, as it has a small kernel and its secondary methods are layered using simple iteration and composition.
+
+  - **Kernel Methods**:
+    void add(String flightId, Flight f): adds/updates a flight record under flightId
+
+    Flight remove(String flightId): removes and returns the flight record for flightId
+
+    boolean hasKey(String flightId): reports whether flightId exists in this schedule
+
+    Flight value(String flightId): returns the flight record for flightId
+
+    int size(): reports number of flights stored
+
+  - **Secondary Methods**:
+    Sequence<Flight> flightsFrom(String airport)
+
+    Sequence<Flight> flightsTo(String airport)
+
+    Sequence<Flight> flightsBetween(String from, String to)
+
+    Sequence<Flight> connections(String from, String to, BaggagePolicy p, int minThrough, int minRecheck): two legs connections that satisfy layover policy
+
+  - **Additional Considerations** (*note*: "I don't know" is an acceptable
+    answer for each of the following questions):
+    - Would this component be mutable? Answer and explain:
+      Yes. Schedules naturally support adding / removing flights, and such standard components are mutable.
+
+    - Would this component rely on any internal classes (e.g., `Map.Pair`)?
+      Answer and explain:
+      Yes. It relies on an internal Flight class containing fields like origin, destination, and departure / arrival times.
+
+    - Would this component need any enums or constants (e.g.,
+      `Program.Instruction`)? Answer and explain:
+      Maybe. If the schedule supports baggage connection search, it would use the shared BaggagePolicy enum. But I think that no additional enums are really necessary.
+
+    - Can you implement your secondary methods using your kernel methods?
+      Answer, explain, and give at least one example:
+      Yes. For example, the connections(...) method can build candidate pairs by combining flightsFrom(from) and flightsTo(to) and checking layover time based on BaggagePolicy.
+
 
 ## Post-Assignment
 
@@ -280,8 +337,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -299,16 +354,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
-## YYYY.MM.DD
+## 2026.02.05
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
-- Designed a <!-- insert name of component 2 here --> component
-- Designed a <!-- insert name of component 3 here --> component
+- Designed a Itinerary component
+- Designed a LayoverRules component
+- Designed a FlightSchedule component
 ```
 
-Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
+Here `2026.02.05` would be the date of your submission, such as 2024.04.21.
 
 You may notice that things are nicely linked in the root CHANGELOG. If you'd
 like to accomplish that, you will need to make GitHub releases after each pull
@@ -320,8 +375,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
 this [Markdown to PDF guide][markdown-to-pdf-guide]. However, PDFs should be
@@ -330,11 +383,7 @@ all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
 
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
-
 ### Peer Review
-
-<!-- TODO: review the peer review guidelines then delete this comment -->
 
 Following the completion of this assignment, you will be assigned three
 students' component brainstorming assignments for review. Your job during the
@@ -361,7 +410,6 @@ If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
 
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [example-components]: https://therenegadecoder.com/code/the-never-ending-list-of-small-programming-project-ideas/
 [markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
