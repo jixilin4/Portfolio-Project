@@ -76,7 +76,7 @@ public final class ItineraryProofOfConcept {
         this.rep = new LinkedList<>();
     }
 
-    /* Kernel-style (assemble/disassemble from ends). */
+    /* Kernel style (assemble/disassemble from ends). */
 
     public void addToFront(Leg x) {
         assert x != null : "Violation of: x is not null";
@@ -106,7 +106,7 @@ public final class ItineraryProofOfConcept {
         this.rep.clear();
     }
 
-    /* Secondary-style (assume exactly two legs for one-connection analysis). */
+    /* Secondary style (assume exactly two legs for one-connection analysis). */
 
     public String origin() {
         if (this.length() == 0) {
