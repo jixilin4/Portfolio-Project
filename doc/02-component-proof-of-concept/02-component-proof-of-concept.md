@@ -116,6 +116,11 @@ Below is further rationale/explanation for the rubric items above:
 
 <!-- TODO: briefly argue your choice of design or design something
 new; then delete this comment -->
+After comparing my three designs, I decided to move forward with Itinerary.
+
+Itinerary is the most central and practical option for this semester. It matches my personal interest in connection in air travel, and its scope is clear: two flight legs plus one connection. The kernel can stay small and OSU CSE style (assemble/disassemble from the ends), and the secondary methods are straightforward to layer on top (layover time and baggage policy connection checks). Compared to LayoverRules (mainly a supporting rules map) and FlightSchedule (a larger data collection with more complex queries), Itinerary is easier to prototype, test, and expand gradually.
+
+To start, I will create a new branch named proof-of-concept and build a small Java file that demonstrates a possible representation and a few key methods, along with a simple main method showing it in action.
 
 > Once you've argued your choice of design, make a branch in your new repo called
 > something like `proof-of-concept`. There are many ways to do this, but my
