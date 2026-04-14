@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [2026.03.31]
+
+### Added
+
+- Implemented ItinerarySecondary with secondary methods layered over kernel operations
+- Implemented toString() and equals() using only kernel and Standard methods
+
+### Changed
+
+- Refined secondary methods to assume the one connection (two legs) itinerary case
+
 ## [2026.03.08]
 
 ### Added
