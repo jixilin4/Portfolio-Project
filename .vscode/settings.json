@@ -41,4 +41,7 @@
     "print.sourcecode.colourScheme": "A11 Y",
     "todo-tree.general.showActivityBarBadge": true,
     "todo-tree.tree.showCountsInTree": true,
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
 }
