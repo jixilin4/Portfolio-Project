@@ -6,6 +6,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [2026.04.14]
+
+### Added
+
+- Implemented Itinerary1L as the concrete kernel implementation
+- Selected Sequence<Leg> as the underlying representation
+- Implemented all kernel methods:
+  - addToFront
+  - removeFromFront
+  - addToEnd
+  - removeFromEnd
+  - length
+- Implemented all Standard methods:
+  - newInstance
+  - clear
+  - transferFrom
+- Added createNewRep() to enforce proper representation initialization
+- Specified full representation invariant
+- Specified full abstraction function
+
+### Changed
+
+- Finalized component layering: Itinerary1L now extends ItinerarySecondary
+- Ensured all secondary methods operate purely through kernel operations
+
 ## [2026.03.31]
 
 ### Added
