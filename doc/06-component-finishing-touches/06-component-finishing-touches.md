@@ -1,8 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Edward Ji
+- **Dot Number**: ji.844
+- **Due Date**: 4/24 @ 23:59 PM EST
 
 ## Assignment Overview
 
@@ -49,8 +49,6 @@ Many of these additional techniques are somewhat out of the scope of this
 course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -140,8 +138,6 @@ merges, you will need to pull the changes from main into your current branch
 to see them. If you don't like this workflow, you may try following the
 rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
-
-<!-- TODO: make a new branch from main then delete this comment -->
 
 ## Assignment Tasks
 
@@ -307,18 +303,18 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+Well, I believe I have gained a deeper understanding of software development. This portfolio project gave me the opportunity to actually work on a "real" project. I experienced how difficult it is to create a project from 0 to 1 with no frameworks. And also, I learned to use platforms like GitHub, which allows me to upload and showcase my code. Furthermore, I was able to build my own repo later. Overall, I'll say that I learned a lot, and improved a lot.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+In the process of creating my portfolio, I did discover many of my shortcomings. For example, sometimes I'm hopeless of debugging and I have to seek help from Jeremy or the TAs. I think I lack imagination a little bit, because I think that I really need to analyzing the codes and try to find a solution by myself. However, software development is also an engineering discipline, so teamwork is an essential part of it, haha. Another gap I encountered was that I realized that I hadn't fully mastered VSCode. My VSCode frequently encountered problems, and often I didn't know how to solve them. Therefore, I often Googled how to use VSCode.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+Absolutely. I still love software development because I love the feeling of creating things. And also, I believe that constantly solving problems and finding the best solutions is a passionate thing. Software development has already become my daily life since 2023, I think. So I get used to that kind of life and still enjoy it. Just imagine showing someone your website and portfolio, how wonderful it is!
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -326,29 +322,29 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+One skill I learned while building my portfolio was to break down a large project into layers. Before undertaking the big big project, we must define each of its smaller components. By starting with the smaller components, we can ultimately build the entire big big project. Another skill I learned is reverse engineering. Imagine the result and output we expected, and then think about what we should do. For testing, I learned to use black box testing, which allow us to verify behavior based on method contracts and postconditions.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+* Designed and implemented a multi layered software component using abstraction and separation of concerns
+* Decomposed a large project into smaller, manageable components to support scalable development
+* Developed and tested a modular Java component following strict representation invariants
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+For job, I'd like to pursue a career in data analysis. Data is an interesting thing. No company is called "data" and almost no department is called "data". This is because data is always applied to various departments of companies in various industries. For example, many tech companies use data to improve their technological research and software development outcomes. Many businesses also use data to conduct market research. In this project, I do the work for a airline (or a airport) to calculate flight transfer time. Therefore, my portfolio also demonstrates that software and data are truly everywhere, so I become more interested about this, really.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+What I can do includes learning Python programming and R Language, both of which are common in data analysis. Since starting university, I have been learning the C programming language, C++, Java. But I really never learned Python. So I believe that Python is something I need to learn in the future (maybe this summer). For research, I might contact professors in CSE or Statistics Department. So I'm still exploring and trying to find more oppotunities.
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -383,8 +379,6 @@ like to accomplish that, you will need to make GitHub releases after each pull
 request merge (or at least tag your commits). This is not required.
 
 ### Submission
-
-<!-- TODO: read the submission instructions then delete this comment -->
 
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
@@ -435,7 +429,5 @@ PDF to read this rubric as a table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9

@@ -16,64 +16,70 @@ public interface Itinerary extends ItineraryKernel {
 
     /**
      * A single flight leg.
-     *
-     * (Implementation detail: may be immutable to avoid aliasing.)
      */
-    interface Leg {
+    final class Leg {
+        private final String from;
+        private final String to;
+        private final int depart;
+        private final int arrive;
 
-        String fromAirport();
+        public Leg(String from, String to, int depart, int arrive) {
+            this.from = from;
+            this.to = to;
+            this.depart = depart;
+            this.arrive = arrive;
+        }
 
-        String toAirport();
+        public String fromAirport() {
+            return this.from;
+        }
 
-        int departMinute();
+        public String toAirport() {
+            return this.to;
+        }
 
-        int arriveMinute();
+        public int departMinute() {
+            return this.depart;
+        }
+
+        public int arriveMinute() {
+            return this.arrive;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (!(obj instanceof Leg)) {
+                return false;
+            }
+            Leg other = (Leg) obj;
+            return this.from.equals(other.from) && this.to.equals(other.to)
+                    && this.depart == other.depart
+                    && this.arrive == other.arrive;
+        }
+
+        @Override
+        public int hashCode() {
+            return this.from.hashCode() + this.to.hashCode() + this.depart
+                    + this.arrive;
+        }
+
+        @Override
+        public String toString() {
+            return this.from + "->" + this.to + " (" + this.depart + "-"
+                    + this.arrive + ")";
+        }
     }
 
-    /**
-     * Reports the origin airport code, or "" if empty.
-     *
-     * @return origin airport code or ""
-     */
     String origin();
 
-    /**
-     * Reports the destination airport code, or "" if empty.
-     *
-     * @return destination airport code or ""
-     */
     String destination();
 
-    /**
-     * Returns the layover time between the first and second leg. This secondary
-     * method is intended for the one-connection (two-leg) case.
-     *
-     * @return layover minutes
-     */
     int layoverTime();
 
-    /**
-     * Reports whether the connection layover is at least
-     * {@code minLayoverMinutes}.
-     *
-     * @param minLayoverMinutes
-     *            minimum required layover time
-     * @return true iff the connection is valid
-     */
     boolean isConnectionValid(int minLayoverMinutes);
 
-    /**
-     * Reports whether the connection layover satisfies the threshold implied by
-     * {@code policy}.
-     *
-     * @param policy
-     *            baggage policy
-     * @param minThrough
-     *            minimum layover for through-check
-     * @param minRecheck
-     *            minimum layover for recheck-required
-     * @return true iff the connection is valid
-     */
     boolean isConnectionValid(BaggagePolicy policy, int minThrough,
             int minRecheck);
+
+    int totalFlightTime();
 }
