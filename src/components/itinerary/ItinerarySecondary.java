@@ -38,8 +38,8 @@ public abstract class ItinerarySecondary implements Itinerary {
 
         int layover = second.departMinute() - first.arriveMinute();
 
-        this.addToEnd(second);
-        this.addToEnd(first);
+        this.addToFront(second);
+        this.addToFront(first);
 
         return layover;
     }
@@ -66,11 +66,7 @@ public abstract class ItinerarySecondary implements Itinerary {
         return this.isConnectionValid(threshold);
     }
 
-    /**
-     * Returns total flight time across both legs.
-     *
-     * @return total flight time in minutes
-     */
+    @Override
     public final int totalFlightTime() {
         assert this.length() == 2 : "Violation of: this has exactly 2 legs";
 
@@ -80,8 +76,8 @@ public abstract class ItinerarySecondary implements Itinerary {
         int total = (first.arriveMinute() - first.departMinute())
                 + (second.arriveMinute() - second.departMinute());
 
-        this.addToEnd(first);
-        this.addToEnd(second);
+        this.addToFront(second);
+        this.addToFront(first);
 
         return total;
     }
@@ -112,7 +108,6 @@ public abstract class ItinerarySecondary implements Itinerary {
 
     @Override
     public final boolean equals(Object obj) {
-
         if (this == obj) {
             return true;
         }
@@ -130,8 +125,6 @@ public abstract class ItinerarySecondary implements Itinerary {
         int n = this.length();
 
         for (int i = 0; i < n; i++) {
-            assert other.length() > 0 : "Violation of: other is not empty";
-
             Leg a = this.removeFromFront();
             Leg b = other.removeFromFront();
 
@@ -145,9 +138,4 @@ public abstract class ItinerarySecondary implements Itinerary {
 
         return same;
     }
-
-    /*
-     * hashCode() is intentionally omitted at this stage. It can be implemented
-     * later consistently with equals().
-     */
 }

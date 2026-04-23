@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Calendar Versioning](https://calver.org/) of
 the following form: YYYY.0M.0D.
 
+## [2026.04.22]
+
+### Added
+
+- Implemented full JUnit test suite for Itinerary1L kernel methods
+- Implemented JUnit test suite for ItinerarySecondary methods
+- Added two use case examples: ItineraryValidatorDemo and FlightTimeSummary
+- Completed final kernel implementation (which is Itinerary1L)
+- Finalized directory structure and project polish for publication
+
+### Changed
+
+- Refactored internal assertions for stronger representation invariants
+- Minor improvements to documentation and formatting for consistency
+
 ## [2026.03.31]
 
 ### Added
